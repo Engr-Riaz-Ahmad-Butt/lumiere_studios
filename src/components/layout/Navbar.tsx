@@ -35,13 +35,13 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2">
-          <span className="font-display text-2xl font-semibold text-gradient-gold">
+        <a href="#home" className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+          <span className="font-display text-xl sm:text-2xl font-semibold text-gradient-gold">
             Lumière
           </span>
-          <span className="font-display text-lg text-muted-foreground">
+          <span className="font-display text-sm sm:text-lg text-muted-foreground hidden xs:inline">
             Studios
           </span>
         </a>
@@ -88,7 +88,7 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="lg:hidden bg-background/98 backdrop-blur-md border-b border-border"
           >
-            <ul className="container mx-auto px-6 py-6 flex flex-col gap-4">
+            <ul className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 flex flex-col gap-2 sm:gap-4">
               {navLinks.map((link, index) => (
                 <motion.li
                   key={link.name}
@@ -98,14 +98,14 @@ const Navbar = () => {
                 >
                   <a
                     href={link.href}
-                    className="block text-lg font-medium text-foreground py-2"
+                    className="block text-base sm:text-lg font-medium text-foreground py-2"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.name}
                   </a>
                 </motion.li>
               ))}
-              <li className="pt-4">
+              <li className="pt-2 sm:pt-4">
                 <Button variant="hero" className="w-full">
                   Book a Session
                 </Button>

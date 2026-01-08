@@ -30,90 +30,90 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-charcoal-light relative">
+    <section id="contact" className="py-16 sm:py-24 md:py-32 bg-charcoal-light relative">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background/50 pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative">
+      <div className="container mx-auto px-4 sm:px-6 relative">
         {/* Header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-12 sm:mb-16"
         >
-          <span className="text-primary font-medium tracking-widest uppercase text-sm">
+          <span className="text-primary font-medium tracking-widest uppercase text-xs sm:text-sm">
             Get in Touch
           </span>
-          <h2 className="font-display text-4xl md:text-5xl font-semibold mt-4 mb-6">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mt-3 sm:mt-4 mb-4 sm:mb-6">
             Let's Create
             <br />
             <span className="text-gradient-gold italic">Something Beautiful</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg">
             Ready to capture your story? We'd love to hear from you. Share your
             vision and let's create magic together.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-muted-foreground">
+                  <label className="text-xs sm:text-sm font-medium text-muted-foreground">
                     Your Name
                   </label>
                   <Input
                     type="text"
                     placeholder="John & Jane"
                     required
-                    className="bg-card border-border focus:border-primary h-12"
+                    className="bg-card border-border focus:border-primary h-10 sm:h-12"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-muted-foreground">
+                  <label className="text-xs sm:text-sm font-medium text-muted-foreground">
                     Email Address
                   </label>
                   <Input
                     type="email"
                     placeholder="hello@example.com"
                     required
-                    className="bg-card border-border focus:border-primary h-12"
+                    className="bg-card border-border focus:border-primary h-10 sm:h-12"
                   />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-muted-foreground">
+                  <label className="text-xs sm:text-sm font-medium text-muted-foreground">
                     Event Date
                   </label>
                   <Input
                     type="date"
-                    className="bg-card border-border focus:border-primary h-12"
+                    className="bg-card border-border focus:border-primary h-10 sm:h-12"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-muted-foreground">
+                  <label className="text-xs sm:text-sm font-medium text-muted-foreground">
                     Service Interested In
                   </label>
                   <Input
                     type="text"
                     placeholder="Wedding Photography"
-                    className="bg-card border-border focus:border-primary h-12"
+                    className="bg-card border-border focus:border-primary h-10 sm:h-12"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-muted-foreground">
+                <label className="text-xs sm:text-sm font-medium text-muted-foreground">
                   Tell Us About Your Vision
                 </label>
                 <Textarea
@@ -148,19 +148,19 @@ const Contact = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="space-y-8"
+            className="space-y-4 sm:space-y-6 md:space-y-8"
           >
             {/* Info Cards */}
-            <div className="bg-card border border-border rounded-lg p-6 hover:border-primary/30 transition-colors">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Calendar className="w-5 h-5 text-primary" />
+            <div className="bg-card border border-border rounded-lg p-4 sm:p-6 hover:border-primary/30 transition-colors">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Calendar className="w-4 sm:w-5 h-4 sm:h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-display text-lg font-semibold mb-1">
+                  <h4 className="font-display text-base sm:text-lg font-semibold mb-1">
                     Book a Consultation
                   </h4>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-muted-foreground text-xs sm:text-sm">
                     Schedule a complimentary video call to discuss your vision
                     and how we can bring it to life.
                   </p>
@@ -168,18 +168,18 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-6 hover:border-primary/30 transition-colors">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-primary" />
+            <div className="bg-card border border-border rounded-lg p-4 sm:p-6 hover:border-primary/30 transition-colors">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-4 sm:w-5 h-4 sm:h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-display text-lg font-semibold mb-1">
+                  <h4 className="font-display text-base sm:text-lg font-semibold mb-1">
                     Email Us
                   </h4>
                   <a
                     href="mailto:hello@lumierestudios.com"
-                    className="text-primary hover:text-gold-light transition-colors"
+                    className="text-primary hover:text-gold-light transition-colors text-xs sm:text-sm"
                   >
                     hello@lumierestudios.com
                   </a>
@@ -187,13 +187,13 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-6 hover:border-primary/30 transition-colors">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-primary" />
+            <div className="bg-card border border-border rounded-lg p-4 sm:p-6 hover:border-primary/30 transition-colors">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-4 sm:w-5 h-4 sm:h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-display text-lg font-semibold mb-1">
+                  <h4 className="font-display text-base sm:text-lg font-semibold mb-1">
                     Call Us
                   </h4>
                   <a
