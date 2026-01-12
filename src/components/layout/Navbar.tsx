@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -15,6 +16,9 @@ const navLinks = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,33 +41,42 @@ const Navbar = () => {
     >
       <nav className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+        <button 
+          onClick={() => navigate("/")} 
+          className="flex items-center gap-1 sm:gap-2 flex-shrink-0 cursor-pointer"
+        >
           <span className="font-display text-xl sm:text-2xl font-semibold text-gradient-gold">
             Lumière
           </span>
           <span className="font-display text-sm sm:text-lg text-muted-foreground hidden xs:inline">
             Studios
           </span>
-        </a>
+        </button>
 
         {/* Desktop Navigation */}
-        <ul className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <li key={link.name}>
-              <a
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
-              >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
-              </a>
-            </li>
-          ))}
-        </ul>
+        {isHomePage && (
+          <ul className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <a
+                  href={link.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {/* CTA Button */}
         <div className="hidden lg:block">
-          <Button variant="elegant" size="default">
+          <Button 
+            variant="elegant" 
+            size="default"
+            onClick={() => navigate("/book-session")}
+          >
             Book a Session
           </Button>
         </div>
@@ -106,7 +119,14 @@ const Navbar = () => {
                 </motion.li>
               ))}
               <li className="pt-2 sm:pt-4">
-                <Button variant="hero" className="w-full">
+                <Button 
+                  variant="hero" 
+                  className="w-full"
+                  onClick={() => {
+                    navigate("/book-session");
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
                   Book a Session
                 </Button>
               </li>
