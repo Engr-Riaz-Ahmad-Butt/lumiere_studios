@@ -88,11 +88,16 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {
